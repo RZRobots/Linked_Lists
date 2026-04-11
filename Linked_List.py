@@ -10,3 +10,21 @@ class Linked_List():
         self.tail = None
         self.size = 0
 
+    def insert(self, n, i):
+        if self.head == None:
+            self.head == n
+            self.size += 1
+
+        elif self.tail == None:
+            self.head.next = n
+            self.tail == n
+            self.size += 1
+
+        else:
+            x = self.head  
+            for a in range(0, i-1):  
+                x = x.next  
+            n.next = x.next
+            x.next = n 
+            self.size += 1 
+    
