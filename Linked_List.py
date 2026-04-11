@@ -28,3 +28,8 @@ class Linked_List():
             x.next = n 
             self.size += 1 
     
+    def find(self, i):
+        x = self.head  
+        for n in range(0, i-1):  
+            x = x.next 
+        return x.data 
