@@ -18,3 +18,13 @@ def test_isEmpty_false():
 
 
 
+def test_insert():
+    obj = Linked_List()
+    n4 = Node(8)
+    n3 = Node(9)
+    obj.insert(n4, 1)
+    obj.insert(n3, 1)
+    print(obj.size)
+    assert obj.size == 2
+    assert obj.head != None
+    assert n4.next == n3
