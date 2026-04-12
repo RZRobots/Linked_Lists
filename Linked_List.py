@@ -50,6 +50,19 @@ class Linked_List():
         x.next = y.next 
         self.size -= 1 
 
-
+    def de_duplicator(self):
+            self.runnable()
+            x = self.head
+            y = x.next
+            i = 1
+            while y.next != None:
+                if x.data == y.data and i < self.size:
+                    self.delete(i)
+                else:
+                    self.delete(i)
+                    self.tail = x
+                i+=1
+                x = x.next
+                y = x.next
 
   
