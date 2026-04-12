@@ -17,7 +17,7 @@ class Linked_List():
 
     def insert(self, n, i):
         if self.head == None:
-            self.head == n
+            self.head = n
             self.size += 1
 
         elif self.tail == None:
