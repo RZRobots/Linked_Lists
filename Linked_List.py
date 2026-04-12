@@ -35,7 +35,21 @@ class Linked_List():
             self.size += 1 
     
     def find(self, i):
+        self.runnable()
         x = self.head  
         for n in range(0, i-1):  
             x = x.next 
         return x.data 
+    
+    def delete(self, i):
+        self.runnable()
+        x = self.head 
+        for n in range(0, i-1): 
+            x = x.next  
+        y = x.next  
+        x.next = y.next 
+        self.size -= 1 
+
+
+
+  
