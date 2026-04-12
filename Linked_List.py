@@ -10,6 +10,12 @@ class Linked_List():
         self.tail = None
         self.size = 0
 
+    def runnable(self):
+        if self.head != None and self.tail != None and self.size > 1:
+            pass
+        else:
+            raise Exception("None Error")
+
     def insert(self, n, i):
         if self.head == None:
             self.head == n
