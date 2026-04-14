@@ -15,7 +15,11 @@ class Linked_List():
             return True
         return False
 
-    def insert(self, n, i):
+    def insert(self, n:Node , i:int):
+        if type(n) != Node or type(i) != int:
+            raise Exception("These datatypes are wrong")
+        elif i > self.size:
+            raise Exception("index out of range")
         if self.head == None:
             self.head = n
             self.size += 1
@@ -34,14 +38,14 @@ class Linked_List():
             self.size += 1 
     
     def find(self, i):
-        self.runnable()
+        self.isEmpty()
         x = self.head  
         for n in range(0, i-1):  
             x = x.next 
         return x.data 
     
     def delete(self, i):
-        self.runnable()
+        self.isEmpty()
         x = self.head 
         for n in range(0, i-1): 
             x = x.next  
@@ -50,7 +54,7 @@ class Linked_List():
         self.size -= 1 
 
     def de_duplicator(self):
-            self.runnable()
+            self.isEmpty()
             x = self.head
             y = x.next
             i = 1
