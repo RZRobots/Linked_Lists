@@ -17,16 +17,18 @@ class Linked_List():
 
     def insert(self, n:Node , i:int):
         if type(n) != Node or type(i) != int:
-            raise Exception("These datatypes are wrong")
+            raise TypeError
         elif i > self.size:
-            raise Exception("index out of range")
-        if self.head == None:
+            raise IndexError
+        
+        if i == 0:
+            n.next = self.head
             self.head = n
             self.size += 1
 
-        elif self.tail == None:
-            self.head.next = n
-            self.tail == n
+            
+        elif self.head == None:
+            self.head = n
             self.size += 1
 
         else:
@@ -36,11 +38,26 @@ class Linked_List():
             n.next = x.next
             x.next = n 
             self.size += 1 
+
+
+        x = self.head
+        while x.next != None:
+            x = x.next
+        
+        self.tail = x
+        
+        # if self.tail == None:
+        #     if self.size == 1:
+        #         self.head.next = None
+        #     else:
+        #         self.head.next = n
+        #     self.tail == n
+        #     self.size += 1
     
     def find(self, i):
         self.isEmpty()
         x = self.head  
-        for n in range(0, i-1):  
+        for n in range(0, i):  
             x = x.next 
         return x.data 
     
