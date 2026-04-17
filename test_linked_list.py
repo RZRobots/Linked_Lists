@@ -17,20 +17,94 @@ def test_isEmpty_false():
     assert obj.isEmpty() == False
 
 
+#Delete this once all insert positive tests are done
+# def test_insert_p():
+#     obj = Linked_List()
+#     n4 = Node(8)
+#     n3 = Node(9)
+#     n2 = Node(7)
+#     obj.insert(n4, 0) 
+#     obj.insert(n3, 0)
+#     obj.insert(n2, 1)
+#     assert obj.size == 3
+#     assert obj.head == n3
+#     assert obj.find(1) == 7
+#     assert obj.tail == n4
+#     assert n3.next == n2
 
-def test_insert_p():
+def test_insert_p_empty():
     obj = Linked_List()
-    n4 = Node(8)
-    n3 = Node(9)
-    n2 = Node(7)
-    obj.insert(n4, 0) 
-    obj.insert(n3, 0)
+    n1 = Node(1)
+    obj.insert(n1, 0)
+    assert obj.size == 1
+    assert obj.head == n1
+    assert obj.find(0) == 1
+    assert obj.tail == n1
+    assert n1.next == None
+
+def test_insert_p_full():
+    obj = Linked_List()
+    n1 = Node(1)
+    n2 = Node(2)
+    obj.head = n1
+    obj.tail = n1
+    obj.size = 1
     obj.insert(n2, 1)
+    assert obj.size == 2
+    assert obj.head == n1
+    assert obj.find(1) == 2
+    assert obj.tail == n2
+    assert n1.next == n2
+
+def test_insert_p_head():
+    obj = Linked_List()
+    n1 = Node(1)
+    n2 = Node(2)
+    n3 = Node(3)
+    obj.head = n1
+    obj.tail = n2
+    obj.size = 2
+    n1.next = n2
+    obj.insert(n3, 0)
     assert obj.size == 3
     assert obj.head == n3
-    assert obj.find(1) == 7
-    assert obj.tail == n4
+    assert obj.find(1) == 1
+    assert obj.tail == n2
+    assert n3.next == n1
+
+def test_insert_p_tail():
+    obj = Linked_List()
+    n1 = Node(1)
+    n2 = Node(2)
+    n3 = Node(3)
+    obj.head = n1
+    obj.tail = n2
+    obj.size = 2
+    n1.next = n2
+    obj.insert(n3, 2)
+    assert obj.size == 3
+    assert obj.head == n1
+    assert obj.find(1) == 2
+    assert obj.tail == n3
+    assert n3.next == None
+    assert n2.next == n3
+
+def test_insert_p_middle():
+    obj = Linked_List()
+    n1 = Node(1)
+    n2 = Node(2)
+    n3 = Node(3)
+    obj.head = n1
+    obj.tail = n2
+    obj.size = 2
+    n1.next = n2
+    obj.insert(n3, 1)
+    assert obj.size == 3
+    assert obj.head == n1
+    assert obj.find(1) == 3
+    assert obj.tail == n2
     assert n3.next == n2
+    assert n1.next == n3
 
 def test_insert_empty():
     obj = Linked_List()
