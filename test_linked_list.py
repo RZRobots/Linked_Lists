@@ -1,3 +1,14 @@
+# when the list was empty and 1 item was inserted
+
+# when the list wasnt empty and 1 item was inserted 
+
+# when you insert at the head
+
+# when you insert at the tail 
+
+# when you insert at the middle
+
+
 import pytest
 
 from Linked_List import Linked_List, Node
@@ -134,7 +145,20 @@ def test_insert_rangeError():
     with pytest.raises(IndexError):
         obj.insert(n3, 10)
 
-def test_delete_p():
+def test_delete_p_head():
+    obj = Linked_List()
+    n1 = Node(1)
+    n2 = Node(2)
+    obj.insert(n1, 0)
+    obj.insert(n2, 1)
+    assert obj.size == 2
+    obj.delete(0)
+    assert obj.head == n2
+    assert obj.tail == n2
+    assert obj.size == 1
+    assert n1.next == None
+
+def test_delete_p_tail():
     obj = Linked_List()
     n4 = Node(8)
     n3 = Node(9)
@@ -142,6 +166,8 @@ def test_delete_p():
     obj.insert(n3, 1)
     obj.delete(1)
     assert n4.next == None
+    assert obj.head == n4
+    assert obj.tail == n4
 
 
 def test_delete_empty():
@@ -164,7 +190,7 @@ def test_delete_rangeError():
     obj = Linked_List()
     n4 = Node(8)
     n3 = Node(9)
-    with pytest.raises(AttributeError):
+    with pytest.raises(IndexError):
         obj.delete(10)
 
 def test_de_duplicator_p():

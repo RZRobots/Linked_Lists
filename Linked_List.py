@@ -61,14 +61,53 @@ class Linked_List():
             x = x.next 
         return x.data 
     
-    def delete(self, i):
-        self.isEmpty()
-        x = self.head 
-        for n in range(0, i-1): 
-            x = x.next  
-        y = x.next  
-        x.next = y.next 
-        self.size -= 1 
+    def delete(self, i:int):
+        if type(i) != int:
+            raise TypeError
+        if i > self.size:
+            raise IndexError
+        
+
+        if not self.size < 3 and self.isEmpty():
+
+
+            if i == 0:
+                i.next = self.head
+
+            elif i == self.size-1:
+                x = self.head
+                for y in range(0, i-1):
+                    x = x.next
+                self.tail = x
+
+            else:
+                x = self.head 
+                for n in range(0, i-1): 
+                    x = x.next  
+                y = x.next  
+                x.next = y.next 
+                self.size -= 1 
+
+        else:
+            if self.size == 2:
+                if i == 0:
+                    self.tail = self.head.next
+                    self.head.next = None
+                    self.head = self.tail
+
+                if i == 1:
+                    self.tail = self.head
+                    self.head.next = None
+
+                self.size = 1
+
+            elif self.size == 1:
+                self.head = None
+                self.tail = None
+                self.size = 0
+
+            else:
+                pass
 
     def de_duplicator(self):
             self.isEmpty()
